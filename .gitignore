@@ -1,0 +1,53 @@
+# Hidden folders and system files
+.cursor/
+.vscode/
+.cache/
+.conda/
+.cursor-server/
+.nv/
+.ollama/
+.ssh/
+bin/
+lib/
+miniconda3/
+.profile
+.viminfo
+.wget-hsts
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.env/
+.venv/
+venv/
+ENV/
+
+# Editor backup files
+*~
+*.swp
+*.swo
+
+# Log files
+*.log
+
+# Local development files
+.local/
+.cache/
+.config/
+
+# Build and distribution directories
+dist/
+build/
+*.egg-info/
