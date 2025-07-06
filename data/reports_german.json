@@ -1,0 +1,72 @@
+[
+  {
+    "patid": "Ss9Z66yVeu8",
+    "accnr": "-YbWToowUTM",
+    "date_of_birth": "19920614",
+    "date": "20231222",
+    "report_date": "20231222",
+    "station": "CT Abdomen/Becken KM + MPR (3D) vom 19.01.2024",
+    "untersuchung": "PCS",
+    "klinische_angaben": "unklares Fieber, Diarrhoen, Leukopenie, seit heute Erbrechen, \rInfektparameteranstieg \rCAVE: kontrastmittelallergie, bisher immer vor KM prednisolon-Gabe\r",
+    "fragestellung": "Ausschluss Ileus DD Infektfokus\r",
+    "voruntersuchung": "Voraufnahmen:\rKeine vergleichbaren vorliegend.\r",
+    "befund": "Untersuchungstechnik: \rNach komplikationsloser Bolus-förmiger i.v. Applikation von Imeron 400, Mehrzeilen Spiral CT durch Abdomen, Becken in venöser Kontrastmittelphase. Zusätzlich erfolgte eine orale Kontrastierung (mit Micropaque 1:7 in Wasser, mit Gastrolux 1:33 in Wasser).  Dühnnschichtrekonstruktionen sowie koronare und sagittale Sekundärrekonstruktionen.\r\rZusätzliche Medikation: Prednisolon auf Station bei bekannter Kontrastmittelreaktion\r\rUnauffällige Darstellung mitabgebildeten basalen Lungenabschnitte. Kein Pleuraerguss. Keine suspekten intrapulmonalen Rundherde. Keine floriden Infiltrate. Mittelständiges Kardiomediastinum. Kein Perikarderguss.\rHomogen kontrastiertes Leberparenchym ohne Nachweis dichtedifferenter fokaler Läsionen. Prallgefüllt und reizlose Gallenblase. Lebervenen und Pfortader frei perfundiert. Keine intra- oder extrahepatische Cholestase. Nebennieren beidseits schlank. Unauffällige Darstellung von Pankreas und Milz. Symmetrische Kontrastierung des Nierenparenchyms. Kein Harnstau. Unauffällige Darstellung der Harnblase. Regelrechte Passage des oral applizierten Kontrastmittels bis zur linken Kolonflexur. Kein Hinweis auf ein intestinales Passagehindernis. Reizlose Darstellung der Appendix. Kein Nachweis von freier Flüssigkeit oder freier intraabdomineller Luft. Verkalktes Uterusmyom. Kein Nachweis einer infradiaphragmalen Lymphadenopathie. Geringe degenerative Veränderungen der Wirbelsäule. Kein Nachweis suspekter ossärer Läsionen. \r",
+    "beurteilung": "-keine Ileus.\r-kein eindeutiger intraabdomineller Infektfokus abgrenzbar\r"
+  },
+  {
+    "patid": "DJJ9wVjkyJU",
+    "accnr": "3F-qIcKPjQA",
+    "date_of_birth": "19350717",
+    "date": "20231228",
+    "report_date": "20231228",
+    "station": "CT LWS vom 25.01.2024",
+    "untersuchung": "NO",
+    "klinische_angaben": "Ex domo diagnostizierte WK 1 Grundplattenfraktur\r",
+    "fragestellung": "bitte CT-LWS zur Frakturmorphologiebeurteilung\r",
+    "voruntersuchung": "Voraufnahmen:\rKeine vorliegend\r",
+    "befund": "Technik: Mehrzeilen Spiral-CT in kontinuierlicher axialer Schichtung nativ. Dünnschichtrekonstruktionen.\r\rErfasst ist die Wirbelsäule von BWK 11 bis zum lumbosakralen Übergang. Osteopener Knochenaspekt. Älter imponierende Grund- und Deckplattenimpression BWK 12, am ehesten osteoporotisch (Genant 2) ohne eindeutige Beteiligung der Hinterkante. Zudem zeigen sich fortgeschrittene degenerative Veränderungen der LWS, Punktum maximum im Segment LWK 3-SWK 1. Minimale Pseudoretrolisthese von LWK 1 gegenöber 2 sowie LWK 2 gegenöber 3 um circa 5 mm ohne assoziierte Spondylolyse. Konsekutive geringgradige neuroforaminale knöcherne Enge des rechten L1 und 2 sowie des linken L2 Neuroforamens. Keine höhergradige spinale oder neuroforaminale knöcherne Enge. \rGeringer Pleuraerguss linksbasal. Pulmonalvenöser Stauungszeichen. Multiple Nierenzysten beidseits, teils mit verkalkten Anteilen im Obergeschoss beidseits. Perirenales Stranding. Reizlose Cholezystolithiasis. Elongation und Sklerose der abdominellen Aorta mit mittelgradiger Abgangsstenose des Truncus coeliacus sowie hochgradiger Abgangsstenose der AMS bei verkalkten Plaques. Verkalkung auch der Beckenachse beidseits. \r",
+    "beurteilung": "1. Älter imponierende, am ehesten osteoporotische Grund- und Deckplattenimpression von BWK 12 (genant 2) ohne eindeutige Beteiligung der Hinterkante\r2. Keine höhergradige spinale oder neuroforaminale knöcherne Enge\r"
+  },
+  {
+    "patid": "pPq5uIsBEoo",
+    "accnr": "EGkHFr06Yw8",
+    "date_of_birth": "19561119",
+    "date": "20231117",
+    "report_date": "20231117",
+    "station": "[REMOVED] Kontrastmittel vom 15.12.2023",
+    "untersuchung": "NCS",
+    "klinische_angaben": "Hypophysenmakroadenom\r\f",
+    "fragestellung": "CTA navifähig\r\f",
+    "voruntersuchung": "Voraufnahmen:\rMRT vom 15.12.23\r\f",
+    "befund": "CTA: Aus der MRT-VU vom 15.12.23 bekannt, große selläre Raumforderung mit Vorwölbung in den linken Seitenventrikel. Bei erweiterten inneren Ventrikelräumen, V.a. Liquoraufstau. Distale ACI beidseits bis M1-Segment der MCI beidseits nach lateral verdrängt aber allseits durchgänig konstratiert. Abseits dessen durchgänige Kontrastierung der arteriellen Gefäße im vorderen und hinteren Stromgebiet ohne höhergradige Stenosen oder Gefässabbrühe. Kein Aneurysmata.  \r\f",
+    "beurteilung": "Bekannte große selläre Raumforderung mit Vorwölbung in den linken Seitenventrikel.  Distale  ACI und proximale MCA nach lateral verdrängt. Allseits durchgänige arterielle Gefäße. \r\f"
+  },
+  {
+    "patid": "pgrUFnHSHaE",
+    "accnr": "WcenFgOYGD0",
+    "date_of_birth": "19461026",
+    "date": "20231120",
+    "report_date": "20231120",
+    "station": "CT Tho./Abd./Beck. KM + MPR (3D) vom 18.12.2023",
+    "untersuchung": "TTZ",
+    "klinische_angaben": "NSCLC St. IVa, ED 8/23\rHistologie: Adeno Ca, PDL1 TPS 95\\%, kras G12C Mutation\rLokalisation: li. UL mit Satellitenherd, li. NN, V.a. Pleurakarzinose li. basal\rZ.n. UL- Resektion + system. Lymphadenektomie li. 8/23\rpT3pN1(6/24)\rZ.n. NN- Resektion li. (R1) 9/23\rProgreß St. IVb (PC) 10/23\rSeit 07.11.2023 Pembrolizumab Monotherapie\r\rPET CT 10/23: Neu aufgetretene Lymphknotenmetastase links paraaortal, neu aufgetretene Metastase des linken Zwerchfellschenkels. Neu aufgetretene Peritonealkarzinose. \r\n",
+    "fragestellung": "Hinw. auf Progreß?\r\n",
+    "voruntersuchung": "Voraufnahmen:\rPET/CT mit 227 MBq (F-18)-Fluordeoxyglucose vom 23.10.2023\r\n",
+    "befund": "Untersuchungstechnik: \rNach komplikationsloser Bolus-förmiger i. v. Applikation von Imeron 400, Mehrzeilen Spiral CT durch Thorax, Abdomen, Becken in venöser Kontrastmittelphase und Ausscheidungsphase. Zusätzlich erfolgte eine orale Kontrastierung. Dünnschichtrekonstruktionen sowie koronare und sagittale Sekundärrekonstruktionen.\r\rThorax:\rOrientierend unauffällige Darstellung der miterfassten Halsweichteile, insbesondere der Schilddrüse. Mittelständiges Kardiomediastinum. Z. n. koronarem Stenting. Orientierend regelrechte Kontrastierung der Herzhöhlen und der zentralen Gefäße. Kein Perikarderguss. Unveränderte Darstellung der mediastinalen Lymphknoten ohne pathologisch vergrößerte Exemplare. Ebenfalls größenkonstante Lymphknoten zwischen linkem Hauptbronchus und Pulmonalarterie mit Traceranreicherung in der Voruntersuchung (PET CT von 10/23). Keine pathologisch vergrößerten Lymphknoten hilär und axillär beidseits.  \r\n",
+    "beurteilung": "\rPembrolizumab \r\n"
+  },
+  {
+    "patid": "gBIgsYSmY8k",
+    "accnr": "w9ZSO_gnYCM",
+    "date_of_birth": "19651213",
+    "date": "20231221",
+    "report_date": "20231221",
+    "station": "CT LWS + MPR (3D) vom 18.01.2024",
+    "untersuchung": "NO",
+    "klinische_angaben": "LWK5 Deckplattenimpressionsfraktur\r\f",
+    "fragestellung": "Hinterkantenbeteiligung?\r\f",
+    "voruntersuchung": "Voraufnahmen:\rRöntgen vom selben Tag.\r\f",
+    "befund": "Untersuchungstechnik: Kontinuierliche axiale Schichtung durch die LWS in Mehrzeilen-Spiral-Technik nativ. Dühnnschichtrekonstruktionen sowie koronare und sagittale Sekundärrekonstruktionen.\r\rArrosion der Grundplatte LWK 4 sowie der Deckplatte LWK 5 mit jeweils angrenzender Mehrsklerosierung des Wirbelkörpers. Kein Nachweis einer frischen Fraktur. Regelrechtes Hinterkantenalignment sowie Stellung in den Facettengelenken. Beidseits Nierenläsionen mit teils zystischen Dichtewerten, DD Nierenzysten. Falls nicht bekannt sonografische Korrelation empfohlen.\r\f",
+    "beurteilung": "-Kein Nachweis einer frischen Fraktur.\r-Veränderungen LWK 4/5 wie oben beschrieben. Hier CT-morphologisch nicht zwischen degenerativen Veränderungen sowie Veränderungen im Rahmen einer (abgelaufenen) Spondylodiszitis zu unterscheiden. Klinische sowie laborchemische Korrelation sowie gegebenenfalls MRT empfohlen.\r\f"
+  }
+]
