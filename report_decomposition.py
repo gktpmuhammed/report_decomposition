@@ -14,6 +14,14 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 import logging
 from datetime import datetime
+from config import (
+    MODEL_CONFIG,
+    PROCESSING_CONFIG,
+    LOGGING_CONFIG,
+    INPUT_FILES,
+    OUTPUT_FILES,
+    LOGS_DIR
+)
 
 # --- Anatomy Grouping from Table 6 ---
 ANATOMY_MAPPING = {
@@ -58,20 +66,19 @@ GROUPED_ANATOMIES = list(ANATOMY_MAPPING.keys())
 
 def setup_logging(model_name: str) -> logging.Logger:
     """Setup logging with timestamped filename."""
-    # Create logs directory
-    os.makedirs("logs", exist_ok=True)
+    # Create logs directory if it doesn't exist
+    LOGS_DIR.mkdir(exist_ok=True)
     
     # Create timestamp for filename
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_filename = f"logs/decomposition_{model_name.replace(':', '_')}_{timestamp}.log"
+    log_filename = LOGS_DIR / f"decomposition_{model_name.replace(':', '_')}_{timestamp}.log"
     
     # Configure logging
     logging.basicConfig(
-        level=logging.DEBUG,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        level=LOGGING_CONFIG["level"],
+        format=LOGGING_CONFIG["format"],
         handlers=[
             logging.FileHandler(log_filename, encoding='utf-8'),
-            # logging.StreamHandler()  # Also log to console
         ]
     )
     
@@ -84,7 +91,7 @@ def setup_logging(model_name: str) -> logging.Logger:
 class OllamaProvider:
     """LLM provider using Ollama (local LLM)."""
     
-    def __init__(self, model_name: str = "llama2", base_url: str = "http://localhost:11434", logger: Optional[logging.Logger] = None):
+    def __init__(self, model_name: str = MODEL_CONFIG["name"], base_url: str = MODEL_CONFIG["base_url"], logger: Optional[logging.Logger] = None):
         self.model_name = model_name
         self.base_url = base_url
         self.logger = logger or logging.getLogger('OllamaProvider')
@@ -94,7 +101,7 @@ class OllamaProvider:
         adapter = HTTPAdapter(
             pool_connections=20,    # Increase from default 10
             pool_maxsize=20,        # Match with max_workers
-            max_retries=2,          # Allow retries on failures
+            max_retries=PROCESSING_CONFIG["retry"]["max_attempts"],
             pool_block=False        # Don't block when pool is full
         )
         self._session = requests.Session()
@@ -157,7 +164,8 @@ class OllamaProvider:
 class MedicalReportDecomposer:
     """Decomposes medical reports into structured components using an LLM."""
 
-    def __init__(self, use_ollama: bool = True, ollama_model: str = "llama3.1", max_workers: int = 4, logger: Optional[logging.Logger] = None):
+    def __init__(self, use_ollama: bool = True, ollama_model: str = MODEL_CONFIG["name"], 
+                 max_workers: int = MODEL_CONFIG["max_workers"], logger: Optional[logging.Logger] = None):
         """Initializes the decomposer."""
         self.logger = logger or logging.getLogger('MedicalReportDecomposer')
         
@@ -357,6 +365,7 @@ Return ONLY the JSON object:"""
         
         start_time = time.time()
         try:
+            self.logger.debug(f"Starting processing for patient {patient_id}")
             decomposed_data = self.decompose_report(row)
             processing_time = time.time() - start_time
             
@@ -367,15 +376,17 @@ Return ONLY the JSON object:"""
                 # Log progress every 10 successful calls
                 if self.successful_calls % 10 == 0:
                     avg_time = sum(self.processing_times) / len(self.processing_times)
-                    success_rate = (self.successful_calls / (self.successful_calls + self.failed_calls)) * 100
+                    success_rate = (self.successful_calls / (self.successful_calls + self.failed_calls)) * 100 if (self.successful_calls + self.failed_calls) > 0 else 0
                     self.logger.info(
-                        f"Progress: {self.successful_calls} successful, "
-                        f"{self.failed_calls} failed, "
-                        f"{self.timeout_errors} timeouts. "
-                        f"Success rate: {success_rate:.1f}%. "
-                        f"Avg processing time: {avg_time:.2f}s"
+                        f"Progress Update:\n"
+                        f"- Successful: {self.successful_calls}\n"
+                        f"- Failed: {self.failed_calls}\n"
+                        f"- Timeouts: {self.timeout_errors}\n"
+                        f"- Success rate: {success_rate:.1f}%\n"
+                        f"- Avg processing time: {avg_time:.2f}s"
                     )
             
+            self.logger.debug(f"Completed processing for patient {patient_id} in {processing_time:.2f}s")
             return patient_id, decomposed_data
             
         except Exception as e:
@@ -383,29 +394,56 @@ Return ONLY the JSON object:"""
                 self.failed_calls += 1
                 if "timeout" in str(e).lower():
                     self.timeout_errors += 1
+                    error_type = "Timeout"
+                else:
+                    error_type = "Error"
             
-            self.logger.error(f"Error processing {patient_id}: {e}")
+            self.logger.error(f"{error_type} processing {patient_id}: {str(e)}")
             return patient_id, {"findings": {}, "impressions": {}}
 
-    def process_reports(self, input_data, output_dir: str = "data", sample_size: Optional[int] = None):
-        """Process all reports in the CSV file or DataFrame with parallel processing."""
+    def process_reports(self, input_data, output_dir: str = "data", sample_size: Optional[int] = None, save_interval: int = 100):
+        """Process all reports in the CSV file or DataFrame with parallel processing and incremental saving."""
         # Handle input data
         if isinstance(input_data, str):
+            self.logger.info(f"Reading input data from CSV file: {input_data}")
             df = pd.read_csv(input_data)
             if sample_size:
                 df = df.head(sample_size)
+                self.logger.info(f"Using sample size of {sample_size} reports")
         elif isinstance(input_data, pd.DataFrame):
+            self.logger.info(f"Using provided DataFrame with {len(input_data)} rows")
             df = input_data
         else:
-            raise ValueError("input_data must be either a CSV path string or a pandas DataFrame")
+            error_msg = "input_data must be either a CSV path string or a pandas DataFrame"
+            self.logger.error(error_msg)
+            raise ValueError(error_msg)
         
+        self.logger.info(f"Creating output directory: {output_dir}")
         os.makedirs(output_dir, exist_ok=True)
+        
+        # Load existing results if they exist
+        findings_path = OUTPUT_FILES["findings"]
+        impressions_path = OUTPUT_FILES["impressions"]
         
         all_findings = {}
         all_impressions = {}
         processed_patients = set()
         
+        if os.path.exists(findings_path):
+            self.logger.info(f"Loading existing findings from {findings_path}")
+            with open(findings_path, 'r', encoding='utf-8') as f:
+                all_findings = json.load(f)
+                processed_patients.update(all_findings.keys())
+                self.logger.info(f"Loaded {len(all_findings)} existing findings")
+        
+        if os.path.exists(impressions_path):
+            self.logger.info(f"Loading existing impressions from {impressions_path}")
+            with open(impressions_path, 'r', encoding='utf-8') as f:
+                all_impressions = json.load(f)
+                self.logger.info(f"Loaded {len(all_impressions)} existing impressions")
+        
         self.start_time = time.time()
+        self.logger.info(f"Starting processing of {len(df)} reports with {self.max_workers} workers")
         print(f"Processing {len(df)} reports with {self.max_workers} workers...")
         
         # Use ThreadPoolExecutor for parallel processing
@@ -415,9 +453,12 @@ Return ONLY the JSON object:"""
                 executor.submit(self._process_single_report, (idx, row)): idx 
                 for idx, row in df.iterrows()
             }
+            self.logger.info(f"Submitted {len(future_to_row)} tasks to thread pool")
             
             # Process results as they complete
             with tqdm(total=len(df)) as pbar:
+                completed_since_last_save = 0
+                
                 for future in as_completed(future_to_row):
                     try:
                         patient_id, decomposed_data = future.result()
@@ -430,78 +471,123 @@ Return ONLY the JSON object:"""
                                 if decomposed_data["impressions"]:
                                     all_impressions[patient_id] = decomposed_data["impressions"]
                                 processed_patients.add(patient_id)
+                                
+                                completed_since_last_save += 1
+                                
+                                # Save results periodically
+                                if completed_since_last_save >= save_interval:
+                                    self.logger.info(f"Saving intermediate results after {completed_since_last_save} new completions")
+                                    try:
+                                        self._save_results(all_findings, all_impressions, output_dir)
+                                        self.logger.info(f"Successfully saved intermediate results. Total processed: {len(processed_patients)}")
+                                    except Exception as save_error:
+                                        self.logger.error(f"Failed to save intermediate results: {save_error}")
+                                    completed_since_last_save = 0
                         
                     except Exception as e:
+                        self.logger.error(f"Error processing future result for patient {patient_id}: {e}")
                         print(f"Error in future result: {e}")
                     
                     pbar.update(1)
         
+        # Final save
+        self.logger.info("Performing final save of results")
+        try:
+            self._save_results(all_findings, all_impressions, output_dir)
+            self.logger.info("Final save completed successfully")
+        except Exception as final_save_error:
+            self.logger.error(f"Failed to perform final save: {final_save_error}")
+        
         # Final performance report
         total_time = time.time() - self.start_time
-        success_rate = (self.successful_calls / (self.successful_calls + self.failed_calls)) * 100
+        success_rate = (self.successful_calls / (self.successful_calls + self.failed_calls)) * 100 if (self.successful_calls + self.failed_calls) > 0 else 0
         avg_time = sum(self.processing_times) / len(self.processing_times) if self.processing_times else 0
         
-        self.logger.info("\n=== Performance Summary ===")
-        self.logger.info(f"Total processing time: {total_time:.2f}s")
-        self.logger.info(f"Average processing time per report: {avg_time:.2f}s")
-        self.logger.info(f"Success rate: {success_rate:.1f}%")
-        self.logger.info(f"Successful calls: {self.successful_calls}")
-        self.logger.info(f"Failed calls: {self.failed_calls}")
-        self.logger.info(f"Timeout errors: {self.timeout_errors}")
-        self.logger.info(f"Processed patients: {len(processed_patients)}")
-        self.logger.info("=====================")
+        performance_summary = f"""
+=== Performance Summary ===
+Total processing time: {total_time:.2f}s
+Average processing time per report: {avg_time:.2f}s
+Success rate: {success_rate:.1f}%
+Successful calls: {self.successful_calls}
+Failed calls: {self.failed_calls}
+Timeout errors: {self.timeout_errors}
+Processed patients: {len(processed_patients)}
+====================="""
         
-        # Save results
-        findings_path = os.path.join(output_dir, 'desc_info_manual_v4.json')
-        with open(findings_path, 'w', encoding='utf-8') as f:
-            json.dump(all_findings, f, indent=2, ensure_ascii=False)
-        print(f"Saved findings to {findings_path}")
-
-        impressions_path = os.path.join(output_dir, 'conc_info_manual_v4.json')
-        with open(impressions_path, 'w', encoding='utf-8') as f:
-            json.dump(all_impressions, f, indent=2, ensure_ascii=False)
-        print(f"Saved impressions to {impressions_path}")
-        
+        self.logger.info(performance_summary)
         print(f"Decomposition complete! Processed {len(processed_patients)} unique patients.")
         self.logger.info(f"Completed processing {len(processed_patients)} patients")
 
+    def _save_results(self, findings: Dict, impressions: Dict, output_dir: str):
+        """Helper method to save results to files."""
+        findings_path = OUTPUT_FILES["findings"]
+        impressions_path = OUTPUT_FILES["impressions"]
+        
+        # Save with temporary files to prevent corruption
+        findings_temp = str(findings_path) + '.tmp'
+        impressions_temp = str(impressions_path) + '.tmp'
+        
+        try:
+            with open(findings_temp, 'w', encoding='utf-8') as f:
+                json.dump(findings, f, indent=2, ensure_ascii=False)
+            os.replace(findings_temp, findings_path)
+            
+            with open(impressions_temp, 'w', encoding='utf-8') as f:
+                json.dump(impressions, f, indent=2, ensure_ascii=False)
+            os.replace(impressions_temp, impressions_path)
+        except Exception as e:
+            self.logger.error(f"Error saving results: {e}")
+            # Clean up temp files if they exist
+            for temp_file in [findings_temp, impressions_temp]:
+                if os.path.exists(temp_file):
+                    os.remove(temp_file)
+            raise
+
 def main():
     """Main function to run the decomposition."""
-    model_name = "qwen3:8b"
-    sample_size = 1500
-    batch_size = 100  # Process in smaller batches
+    model_name = MODEL_CONFIG["name"]
+    batch_size = MODEL_CONFIG["batch_size"]
+    save_interval = MODEL_CONFIG["save_interval"]
     
     # Setup logging
     logger = setup_logging(model_name)
-    logger.info(f"Starting decomposition with model: {model_name}, sample_size: {sample_size}, batch_size: {batch_size}")
+    logger.info(f"Starting decomposition with model: {model_name}, batch_size: {batch_size}")
     
-    # Using qwen3:8b with conservative parallel processing and logging
+    # Using configured model with conservative parallel processing and logging
     decomposer = MedicalReportDecomposer(
         use_ollama=True, 
         ollama_model=model_name,
-        max_workers=4,  # Reduced workers for more stable processing
+        max_workers=MODEL_CONFIG["max_workers"],
         logger=logger
     )
     
-    # Read the full dataset
+    # Read and process the dataset in chunks to manage memory
     try:
-        df = pd.read_csv('data/train_reports.csv')
-        if sample_size:
-            df = df.head(sample_size)
-        
-        # Process in batches
-        total_batches = (len(df) + batch_size - 1) // batch_size
-        for i in range(0, len(df), batch_size):
-            batch_num = i // batch_size + 1
-            logger.info(f"Processing batch {batch_num}/{total_batches}")
+        # Use pandas chunk reading for large CSV
+        chunk_size = MODEL_CONFIG["chunk_size"]
+        for chunk_num, chunk_df in enumerate(pd.read_csv(INPUT_FILES["train"], chunksize=chunk_size)):
+            logger.info(f"Processing chunk {chunk_num + 1}")
             
-            batch_df = df.iloc[i:i+batch_size].copy()  # Create a copy to avoid warnings
-            decomposer.process_reports(batch_df, output_dir='data')
+            # Process each chunk in batches
+            for i in range(0, len(chunk_df), batch_size):
+                batch_num = i // batch_size + 1
+                logger.info(f"Processing batch {batch_num} of chunk {chunk_num + 1}")
+                
+                batch_df = chunk_df.iloc[i:i+batch_size].copy()
+                decomposer.process_reports(
+                    batch_df,
+                    output_dir='data',
+                    save_interval=save_interval
+                )
+                
+                # Add cool-down period between batches
+                if i + batch_size < len(chunk_df):
+                    logger.info("Cooling down between batches...")
+                    time.sleep(PROCESSING_CONFIG["cooldown"]["between_batches"])
             
-            # Add cool-down period between batches
-            if i + batch_size < len(df):
-                logger.info("Cooling down between batches...")
-                time.sleep(10)  # 10 second cool-down
+            # Longer cool-down between chunks
+            logger.info("Cooling down between chunks...")
+            time.sleep(PROCESSING_CONFIG["cooldown"]["between_chunks"])
                 
     except Exception as e:
         logger.error(f"Error in main processing: {e}")

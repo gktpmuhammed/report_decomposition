@@ -5,13 +5,13 @@
     "date_of_birth": "19920614",
     "date": "20231222",
     "report_date": "20231222",
-    "station": "CT Abdominopelvis with 3D MPR from 19.01.2024",
-    "untersuchung": "Postoperative Care Survey",
-    "klinische_angaben": "Unspecific fever, diarrhea, leukopenia, vomiting since today, increase of infection parameters. Caution: contrast media allergy, always prednisolone given prior to CM.",
-    "fragestellung": "Exclusion of Ileus (due to focus on infection focal point)",
-    "voruntersuchung": "No comparable findings on admission.",
-    "befund": "Complications-free intravenous bolus administration of Imeron 400, followed by multi-slice spiral CT scan through the abdomen and pelvis in venous contrast phase. Additional oral contrast (Micropaque 1:7 in water, Gastrolux 1:33 in water). Dual-energy reconstruction for duodenal layers as well as coronal and sagittal secondary reconstructions. Additional medication: Prednisolon on station with known contrast medium reaction. Unremarkable depiction of the basal lung sections. No pleural effusion. No suspicious round opacities in the lungs. No active infiltrates. Central positioning of the cardiac mediastinum. No pericardial effusion. Homogeneously contrasted liver parenchyma without evidence of differentially focused focal lesions. Distended and unirritated gallbladder. Liver veins and portal vein well-perfused. No intra- or extrahepatic cholestasis. Both adrenals normal. Unremarkable depiction of the pancreas and spleen. Symmetric contrasting of the kidney parenchyma. No hydronephrosis. Unremarkable depiction of the urinary bladder. Regular passage of orally applied contrast agent up to the left colon flexure. No evidence of intestinal obstruction. Calcified uterine myoma. No evidence of inguinal lymphadenopathy below the diaphragm. Minimal degenerative changes in the spine. No suspicious osseous lesions.",
-    "beurteilung": "No ileus. No definite intra-abdominal focus of infection distinguishable."
+    "station": "CT Scan of Abdomen and Pelvis with 3D MPR from 19.01.2024",
+    "untersuchung": "Pulmonary Capillary Scintigraphy (PCS)",
+    "klinische_angaben": "Unclear fever, diarrhea, leukopenia, vomiting since today, increase in infection parameters. Caution: contrast media allergy, previously always before CM prednisolone administration.",
+    "fragestellung": "Exclusion of Ileus differential diagnosis (Focus on Infection)",
+    "voruntersuchung": "No comparable findings present.",
+    "befund": "Complication-free IV bolus application of Imeron 400, followed by multi-slice Spiral CT scan of the abdomen and pelvis in venous contrast phase. Additional oral contrast (with Micropaque 1:7 in water, with Gastrolux 1:33 in water). Dual-energy reconstructions for Duodenal layer and coronal and sagittal secondary reconstructions. Additional medication: Prednisolon on station known for contrast medium reaction. Unremarkable presentation of the basal lung segments. No pleural effusion. No suspicious round intrapulmonary nodules. No active infiltrates. Central positioning of the cardiomedias-tinum. No pericardial effusion. Liver parenchyma evenly contrasted without evidence of densely differentiated focal lesions. Gallbladder filled and irritationless. Liver veins and portal vein freely perfused. No intra- or extrahepatic cholestasis. Both adrenals normal. Unremarkable presentation of pancreas and spleen. Symmetrical contrast of renal parenchyma. No hydronephrosis. Unremarkable presentation of the urinary bladder. Normal passage of orally applied contrast agent to the left colon flexure. No indication of intestinal passage obstruction. Irritationless presentation of the appendix. No evidence of free fluid or free intra-abdominal air. Calcified uterus myoma. No evidence of inguinal lymphadenopathy below the diaphragm. Minimal degenerative changes to the spine. No evidence of suspicious osseous lesions.",
+    "beurteilung": "No ileus present. No clear intra-abdominal infectious focus discernible."
   },
   {
     "patid": "DJJ9wVjkyJU",
@@ -19,13 +19,13 @@
     "date_of_birth": "19350717",
     "date": "20231228",
     "report_date": "20231228",
-    "station": "CT scan of 25.01.2024",
-    "untersuchung": "Negative finding",
-    "klinische_angaben": "Initial diagnosis at home: Basal Plate Fracture (Week 1)",
+    "station": "CT Lumber Spine Examination on 25.01.2024",
+    "untersuchung": "Negative (test result)",
+    "klinische_angaben": "Acute basal plate fracture, initially diagnosed at home.",
     "fragestellung": "Request for CT-LWS assessment of fracture morphology",
-    "voruntersuchung": "No preliminary examinations available",
-    "befund": "Continuous multi-slice Spiral-CT in native continuous axial section, thin-slice reconstructions. Assessed is the spine from D11 to the lumbosacral junction. Osteoporotic appearance of BWK 12, most likely osteoporotic (Genant 2) without clear involvement of the posterior edge. Also shows advanced degenerative changes in the LWS, maximum point in segment LWK 3-SWK 1. Minimal pseudoretrolisthesis of LWK 1 versus 2 and LWK 2 versus 3 about 5 mm without associated spondylolysis. Consecutive mild neuroforaminal bony narrowing of the right L1, L2 and left L2 foramen. No high-grade spinal or neuroforaminal bony stenosis. Mild pleural effusion in the left basal region. Pulmonary venous congestion signs. Multiple kidney cysts on both sides, partly with calcified parts in the upper regions of both sides. Perirenal stranding. Silent cholelithiasis. Elongation and sclerosis of the abdominal aorta with moderate stenosis of the celiac trunk's origin and high-grade stenosis of the mesenteric artery at calcified plaques. Calcification also in the pelvic axis on both sides.",
-    "beurteilung": "Advanced age appearance, suggestive of osteoporotic impression from L12 (named 2) without clear involvement of the posterior border 2. No higher-grade spinal or neuroforaminal bony stenosis present."
+    "voruntersuchung": "No preliminary examination available",
+    "befund": "Continuous multi-slice Spiral-CT in native axial stacking. Thin slice reconstructions. Assessed is the spine from D11 to lumbosacral junction. Osteoporotic bone aspect, older suggesting. Ground and surface plates impression at D12, mostly osteoporotic (Genant 2) without clear marginal involvement. Additionally, advanced degenerative changes in LWS, maximum point in segment L3-L1. Minimal pseudoretrolisthesis of D1 from 2 and D2 from 3 approximately 5 mm without associated spondylolysis. Consecutive mild grade neuroforaminal bony narrowing of right L1 and 2 and left L2 neuroforamen. No high-grade spinal or neuroforaminal bony narrowing. Mild pleural effusion on the left side. Pulmonary venous congestion signs. Multiple renal cysts bilaterally, partially with calcified portions in the upper pole bilaterally. Perirenal stranding. Silent cholelithiasis. Elongation and sclerosis of abdominal aorta with moderate stenosis of celiac trunk and high-grade stenosis of mesenteric artery at calcified plaques. Calcification also of the pelvic axis bilaterally.",
+    "beurteilung": "Non-specific osteoporotic appearance of vertebral body (12, named 2) without definite posterior margin 2 involvement. No high-grade spinal or neuroforaminal bony narrowing present."
   },
   {
     "patid": "pPq5uIsBEoo",
@@ -34,12 +34,12 @@
     "date": "20231117",
     "report_date": "20231117",
     "station": "Contrast medium administered on 15.12.2023",
-    "untersuchung": "Nerve Conduction Study (NCS)",
+    "untersuchung": "Nervous Conduction Study (NCS)",
     "klinische_angaben": "Pituitary Macroadenoma",
-    "fragestellung": "CT-navigable (in context of imaging)",
-    "voruntersuchung": "MRI taken on 15.12.23 (Magnetic Resonance Imaging performed on 15th December, 23)",
-    "befund": "Large sellar mass formation with anterior bulging in the left atrium ventricle from MRI-VU on 12/15/23. Enlarged internal ventricular chambers, with hydrocephalus. Distal ACI bilaterally displaced to M1 segment of MCI bilaterally, but overall consistently constricted. Contrast agent consistently distributed in the arterial vessels in both the anterior and posterior territories without high-grade stenoses or vessel rupture. No aneurysms present.",
-    "beurteilung": "Known large atrial septal aneurysm with bulging into the left atrium. The distal ACI and proximal MCA are displaced laterally. Completely circumferential arterial vessels."
+    "fragestellung": "CT-navigable (in terms of anatomy)",
+    "voruntersuchung": "MRI examination on 15.12.23",
+    "befund": "Large sellar mass lesion with convexity in the left atrium of the ventricle, known from MRT-VU on 15.12.23. With dilated internal ventricular chambers, there is a hydrocephalus (ventriculomegaly). Distally, the anterior cerebral arteries are displaced laterally up to the M1 segment of the middle cerebral artery on both sides, but overall well-contrasted. Contrast of the arterial vessels in the anterior and posterior circulation areas is uniform without high-grade stenoses or disruptions. No aneurysms were found.",
+    "beurteilung": "Known extensive atrioventricular septal aneurysm with dorsal curvature in the left ventricle. Distal ACI and proximal MCA displaced laterally. Completely surrounding arterial vessels."
   },
   {
     "patid": "pgrUFnHSHaE",
@@ -47,12 +47,12 @@
     "date_of_birth": "19461026",
     "date": "20231120",
     "report_date": "20231120",
-    "station": "3D Multiplanar Reformatting (MPR) CT Scan of Thorax, Abdomen, and Back on 18th December 2023",
-    "untersuchung": "Thrombotic Thrombocytopenic Purpura (TTZ)",
-    "klinische_angaben": "Stage IVa NSCLC (Adeno Ca), PDL1 TPS 95%, kras G12C Mutation (located in the left upper lobe with satellite nodule, left nodal station, right-sided pleural cancer at the base of the left upper lobe). Resection of left upper lobe + systemic lymphadenectomy on 8/23 (pT3 pN1(6/24)). Nodal station (R1) resection on 9/23. Progressed to Stage IVb (PC) on 10/23. Pembrolizumab monotherapy from 10/23. Newly appeared left paraaortic lymph node metastasis, newly appeared left costal diaphragm metastasis, newly appeared peritoneal cancer.",
+    "station": "CT Thorax/Abdomen/Spine with 3D MPR from 18.12.2023",
+    "untersuchung": "Trigonoziphydrosis (TTZ)",
+    "klinische_angaben": "Stage IVa NSCLC (adenocarcinoma), ED 8/23 Histology: PDL1 TPS 95%, KRAS G12C Mutation (located at the left upper lobe with satellite nodule, left hilar and mediastinal nodes, pleural carcinomas basal segment of the left upper lobe- Resection + systemic Lymphadenectomy at 8/23 pT3pN1(6/24) Z.n. NN- Resection (R1) at 9/23 Progression Stage IVb (PC) 10/23 Since 07.11.2023 Pembrolizumab Monotherapy PET CT 10/23: Newly appeared left paraaortic lymph node metastasis, newly appeared metastasis of the left costal cartilage, newly appeared peritoneal carcinomatosis.",
     "fragestellung": "Progress noted?",
     "voruntersuchung": "PET/CT scan with 227 MBq (F-18)-Fluorodeoxyglucose on 23.10.2023",
-    "befund": "Complications-free intravenous bolus administration of Imeron 400, followed by multislice spiral CT scan through Thorax, Abdomen, Pelvis in venous contrast phase and excretion phase with additional oral contrasting. Thin-slice reconstructions as well as coronal and sagittal secondary reconstructions. Thorax: Unremarkable depiction of fused neck structures, especially the thyroid. Central mediastinum. With regard to coronary stenting. Orientationally correct contrasting of heart chambers and central vessels. No pericardial effusion. Unchanged representation of mediastinal lymph nodes without pathologically enlarged nodes. Also, size-constant lymph nodes between the main bronchus and pulmonary artery with tracer enrichment in the preliminary examination (PET CT from 10/23). No pathologically enlarged hilar and axillary nodes on both sides.",
+    "befund": "Cross-sectional Spiral CT through Thorax, Abdomen, Pelvis in venous contrast phase and excretion phase post i.v. application of Imeron 400 with oral contrast. Thin-slice reconstructions and secondary coronary and sagittal reconstructions. Thorax: Unremarkable visualization of the enfolded neck structures, particularly the thyroid. Mediastinal positioning of the heart. With regard to coronary stenting. Normally enhanced contrast of the cardiac chambers and central vessels. No pericardial effusion. Unchanged representation of mediastinal lymph nodes without pathologically enlarged examples. Also, consistently sized lymph nodes between the left main bronchus and pulmonary artery with tracer enhancement in the initial investigation (PET CT on 10/23). No pathologically enlarged hilar or axillary lymph nodes bilaterally.",
     "beurteilung": "Anti-PD1 antibody (Pembrolizumab)"
   },
   {
@@ -61,12 +61,12 @@
     "date_of_birth": "19651213",
     "date": "20231221",
     "report_date": "20231221",
-    "station": "3D-CT (MPR) scan from 18.01.2024",
-    "untersuchung": "Negative (or No abnormality found)",
-    "klinische_angaben": "LWK5 Deckplattenimpression Fracture (X-ray plate impression fracture)",
+    "station": "3D CT (MPR) scan from 18.01.2024",
+    "untersuchung": "Negative (test/finding)",
+    "klinische_angaben": "LWK5 Deckplattenimpressions fracture\n(This translates to \"LWK5 Vertebral body impression fracture\" in English.)",
     "fragestellung": "Posterior corner involvement?",
-    "voruntersuchung": "X-ray images from the same day.",
-    "befund": "Continuous axial sectioning through the LWS using multi-line spiral technique natively. Reconstructions of the Dühnnschicht and coronary and sagittal secondary reconstructions. Erosion of the baseplate LWK 4 and coverplate LWK 5, each with adjacent multisclerosis of the vertebral body. No evidence of a fresh fracture. Appropriate posterior border alignment and position in facet joints. Renal lesions on both sides with partially cystic attenuation values, differential diagnosis renal cysts. If not known, ultrasound correlation is recommended.",
-    "beurteilung": "No evidence of fresh fracture. Changes in LWK 4/5 as previously described. Cannot differentiate between degenerative changes and changes within the context of (completed) spondylodiscitis using CT morphology. Clinical, laboratory chemical correlation and MRI recommended if necessary."
+    "voruntersuchung": "X-ray from the same day.",
+    "befund": "Continuous axial layer scanning through the LWS using multi-slice spiral technique natively. Dynagram reconstructions in coronal and sagittal planes. Arrosion of the base plate LWK 4 and the cover plate LWK 5 with adjacent multisclerosis of the vertebral body. No evidence of recent fracture. Correct posterior border alignment and position within the facet joints. Renal lesions on both sides with partially cystic density values, differential diagnosis renal cysts. If not known, sonographic correlation recommended.",
+    "beurteilung": "No evidence of a fresh fracture. Changes in LWK 4/5 as described above. Cannot differentiate CT-morphologically between degenerative changes and changes within the context of (resolved) spondylodiscitis. Clinical, laboratory, and possibly MRI recommended for correlation."
   }
 ]
