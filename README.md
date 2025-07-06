@@ -56,3 +56,7 @@ Once the model is running (you see the `>>>` prompt in your second terminal), yo
 To exit the chat, type `/bye` and press Enter.
 
 To stop the Ollama server completely, go back to the first terminal and press `Ctrl+C`. 
+
+
+
+nohup bash -c 'ollama serve > ollama.log 2>&1 & sleep 10 && source ~/miniconda3/etc/profile.d/conda.sh && conda activate ct-rate && python report_decomposition.py' > report_decomposition_output.log 2>&1 &

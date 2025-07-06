@@ -1,0 +1,185 @@
+{
+  "train_5_a": {
+    "Impressions": "There is no finding in favor of pneumonic infiltration in both lung parenchyma, and sequela parenchymal changes are observed in bilateral apex, left upper lobe inferior lingular segment and middle lobe medial segment, and nonspecific nodules in millimetric sizes are observed in both lung parenchyma. There are calcified atheroma plaques in millimetric sizes in the wall of the thoracic aorta.",
+    "lung": "There is no finding in favor of pneumonic infiltration in both lung parenchyma, and sequela parenchymal changes are observed in bilateral apex, left upper lobe inferior lingular segment and middle lobe medial segment, and nonspecific nodules in millimetric sizes are observed in both lung parenchyma.",
+    "aorta": "There are calcified atheroma plaques in millimetric sizes in the wall of the thoracic aorta."
+  },
+  "train_2_a": {
+    "Impressions": " Emphysematous and passive atelectatic changes in both lungs.  Minimal thickening of the segmental bronchial walls of both lungs.  Nonspecific subpleural nodule in the posterior segment of the right lung upper lobe.  Cholelithiasis.  Minimal degenerative changes in bone structure."
+  },
+  "train_1_a": {
+    "Impressions": " Multiple venous collaterals in the anterior left chest wall and collapsed appearance in the left subclavian vein (chronic occlusion?).  Thickening of the bronchial wall in both lungs.  Peribronchial reticulonodular densities in the lower lobes, minimal consolidations (infection process?).  Atelectasis in both lungs.  Thoracic spondylosis."
+  },
+  "train_3_b": {
+    "Impressions": " Chronic renal failure in follow-up.  Bilateral pleural effusion, interlobular septal thickenings and centriacinar nodules in both lungs (patient is recommended to be evaluated for pulmonary edema).  Minor consolidations in the right lung, which may again be compatible with pulmonary edema or pneumonic infiltration.  Millimetric nodules in both lungs.  Mediastinal and hilar lymph nodes.  Atherosclerotic changes in the aorta and coronary arteries.  Hiatal hernia.",
+    "lung": "Bilateral pleural effusion, interlobular septal thickenings and centriacinar nodules in both lungs. Minor consolidations in the right lung, which may again be compatible with pulmonary edema or pneumonic infiltration. Millimetric nodules in both lungs.",
+    "aorta": "Atherosclerotic changes in the aorta.",
+    "heart": "Atherosclerotic changes in the coronary arteries.",
+    "kidney": "Chronic renal failure in follow-up."
+  },
+  "train_3_a": {
+    "Impressions": " Calcific atheromatous plaques in coronary arteries.  Slight increase in heart size.  Several reactive-looking lymph nodes in the mediastinal area.  Minimal bronchiectatic changes and mild peribronchial thickness increases.  Sequelae of fibrotic densities in both lungs."
+  },
+  "train_6_b": {
+    "Impressions": " Widespread ground-glass areas of confluence accompanied by interlobular septal thickness increases in the lower lobes of both lungs; findings are consistent with viral pneumonia. Its prevalence has decreased partially.  Areas of subsegmental atelectasis in the posterior segments of the lower lobes of both lungs.  Stable, calcific parenchymal metastases in both lungs.  Several hypodense nodules in the right thyroid lobe; is stable.  Dilatation of the ascending aorta.  Stable hypodense lesion (cyst?) in the right lobe of the liver.",
+    "lung": "Widespread ground-glass areas of confluence accompanied by interlobular septal thickness increases in the lower lobes of both lungs; findings are consistent with viral pneumonia. Its prevalence has decreased partially. Areas of subsegmental atelectasis in the posterior segments of the lower lobes of both lungs. Stable, calcific parenchymal metastases in both lungs.",
+    "aorta": "Dilatation of the ascending aorta.",
+    "liver": "Stable hypodense lesion (cyst?) in the right lobe of the liver."
+  },
+  "train_4_a": {
+    "Impressions": " Sequelae changes in the right lung upper lobe and left lung upper lobe apicoposterior segment.  Millimetrically sized nonspecific parenchymal nodules in both lungs.  Osteopenia in the thoracolumbar vertebrae."
+  },
+  "train_7_a": {
+    "Impressions": " Sequelae changes in the right lung.  Calcified nonspecific parenchymal nodules in both lungs.  Hepatomegaly.",
+    "lung": "Sequelae changes in the right lung. Calcified nonspecific parenchymal nodules in both lungs.",
+    "liver": "Hepatomegaly"
+  },
+  "train_6_a": {
+    "Impressions": "Not given."
+  },
+  "train_8_a": {
+    "Impressions": "Pleural effusion and concomitant compression atelectasis in both lungs. Nonspecific nodules in both lungs.  Cardiomegaly and minimal pericardial effusion. Patient 14.10.",
+    "lung": "Pleural effusion and concomitant compression atelectasis in both lungs. Nonspecific nodules in both lungs.",
+    "heart": "Cardiomegaly and minimal pericardial effusion."
+  },
+  "train_8_b": {
+    "Impressions": " Bilateral pleural effusion observed in the old CT was not detected in the current examination.  There is significant regression in the consolidation areas observed in both lungs.  There are millimetric nodule formations in both lungs. It is stable at observable levels."
+  },
+  "train_9_a": {
+    "Impressions": " Millimetric calcific nodules in both lungs"
+  },
+  "train_10_a": {
+    "Impressions": " Findings compatible with Covid pneumonia  Aortic and coronary artery atherosclerosis  Hypodense lesion (cyst?) in liver segment 2"
+  },
+  "train_11_a": {
+    "Impressions": "Typical-probable Covid-19 pneumonia"
+  },
+  "train_12_a": {
+    "Impressions": " Calcific atheroma plaque in the aorta.  Emphysematous changes in both lungs.  Atelectatic sequelae changes in both lungs."
+  },
+  "train_13_a": {
+    "Impressions": "hepatosteatosis."
+  },
+  "train_14_a": {
+    "Impressions": "Hiatal hernia . Mild scoliosis with right thoracic opening"
+  },
+  "train_15_a": {
+    "Impressions": "Ground-glass dasity extending along the peribronchial area in the posterior segment of the right lung upper lobe and focal thickening of the visceral pleura in the periphery were initially evaluated in favor of sequelae changes. However, the appearance is risky in terms of early viral pneumonia, albeit low. Clinical and laboratory correlation is recommended . Spleen hilus accessory spleen inferiorly.",
+    "lung": "Ground-glass density extending along the peribronchial area in the posterior segment of the right lung upper lobe and focal thickening of the visceral pleura in the periphery were initially evaluated in favor of sequelae changes. However, the appearance is risky in terms of early viral pneumonia, albeit low. Clinical and laboratory correlation is recommended .",
+    "spleen": "Spleen hilus accessory spleen inferiorly."
+  },
+  "train_16_a": {
+    "Impressions": " Postoperative sequelae changes in the operation site in the patient who was learned to have had right mystectomy and axillary curettage.  Pathological lymph nodes adjacent to bilateral supraclavicular, aortopulmonary, and left subclavian arteries; is stable.  Stable lymph nodes that do not reach pathological dimensions in other parts of the mediastinum.  Slightly increased pleural effusion in the right hemithorax, stable sequelae thickening in the left posterior costal pleura.  Patchy ground glass consolidations with crazy paving patterns in the peripheral subpleural areas of the upper and lower lobe of the right lung; the outlook may be compatible with radiation pneumonia or Covid-19 pneumonia. It is recommended to be evaluated together with clinical and laboratory.  Millimetric pulmonary nodules in both lungs; is stable.  Metastatic mass lesions thought to increase in number and size in both lobes of the liver, although optimal evaluation could not be made in the examination performed without IV contrast; Further examination is recommended.  Metastasis in the sternum corpus",
+    "lung": "Patchy ground glass consolidations with crazy paving patterns in the peripheral subpleural areas of the upper and lower lobe of the right lung; the outlook may be compatible with radiation pneumonia or Covid-19 pneumonia. Millimetric pulmonary nodules in both lungs; is stable.",
+    "liver": "Metastatic mass lesions thought to increase in number and size in both lobes of the liver, although optimal evaluation could not be made in the examination performed without IV contrast; Further examination is recommended."
+  },
+  "train_16_b": {
+    "Impressions": " Metastatic breast Ca  Findings compatible with Covid pneumonia  Bilateral supraclavicular right axillary and mediastinal lymph node metastases, hilar-located mass lesions that cause stenosis due to pushing in the lumens of both main bronchi, cannot be evaluated clearly due to lack of contrast agent. However, it is not present in his previous study. It was evaluated with high suspicion in favor of new metastasis. Contrast-enhanced examination is recommended.  An increase in the number of liver metastases is observed.  Bilateral mild pleural effusion",
+    "lung": "Findings compatible with Covid pneumonia",
+    "liver": "An increase in the number of liver metastases is observed."
+  },
+  "train_17_a": {
+    "Impressions": " Suspicious findings in terms of Covid-19 viral pneumonia. Clinical and laboratory correlation is recommended.  Hepatosteatosis."
+  },
+  "train_18_a": {
+    "Impressions": " A few millimetric non-specific nodules are observed in both lungs.  A few small millimetric lymph nodes in the mediastinum  Small lymph nodes are observed in the vicinity of the small-great curvature of the stomach.  Density reduction, degenerative changes in bone structures."
+  },
+  "train_19_a": {
+    "Impressions": " Areas of mild parenchymal distortion and linear atelectasis in both lungs.  Thinning of both kidney parenchyma thickness and dilatation in both kidney collecting systems."
+  },
+  "train_20_a": {
+    "Impressions": " Findings evaluated in favor of viral pneumonia in both lungs."
+  },
+  "train_21_a": {
+    "Impressions": " Increased heart size, thoracic aorta, calcified atheroma plaques in the wall of coronary vascular structures, and pericardial effusion.  Diffuse mild ectasia and diffuse peribronchial diffuse minimal thickness increase in the central bronchial structures of both lungs, a millimetric nodule in the anterior segment of the right lung upper lobe.  A lesion evaluated in favor of adenoma in the corpus of the left adrenal gland."
+  },
+  "train_22_a": {
+    "Impressions": "Consolidated mass lesion in the superior right lung lower lobe, infectious process mass lesion? Clinical laboratory correlation and close follow-up are recommended for the differential diagnosis of a carcinomatous process.",
+    "lung": "Consolidated mass lesion in the superior right lung lower lobe, infectious process mass lesion? Clinical laboratory correlation and close follow-up are recommended for the differential diagnosis of a carcinomatous process."
+  },
+  "train_23_a": {
+    "Impressions": "Densities compatible with foreign body in the left lung and at the level of the left pectoral muscles. Findings consistent with emphysema.  Millimetric lesion consistent with adenoma with negative HU density values of approximately 8 mm in the left adrenal genus. Slight irregularities in the cortex at the 4th rib on the right, heterogeneity in the medullary bone structure. Peripheral sclerotic millimetric nonspecific lesion in the left 4th rib.",
+    "lung": "Densities compatible with foreign body in the left lung and at the level of the left pectoral muscles. Findings consistent with emphysema.",
+    "rib": "Slight irregularities in the cortex at the 4th rib on the right, heterogeneity in the medullary bone structure. Peripheral sclerotic millimetric nonspecific lesion in the left 4th rib."
+  },
+  "train_24_a": {
+    "Impressions": " Diffuse emphysema in both lungs  LAD calcified atherosclerotic plaques  Calcified atherosclerotic plaques in the abdominal and thoracic aorta  Atelectic parenchyma areas in the lower lobe basal segments of both lungs  Volume loss in the medial segment of the right lung middle lobe and mass uncontoured, nodular with traction bronchiectasis Sequelae were evaluated primarily in favor of change.",
+    "lung": "Diffuse emphysema in both lungs Atelectic parenchyma areas in the lower lobe basal segments of both lungs Volume loss in the medial segment of the right lung middle lobe and mass uncontoured, nodular with traction bronchiectasis",
+    "aorta": "Calcified atherosclerotic plaques in the abdominal and thoracic aorta"
+  },
+  "train_25_a": {
+    "Impressions": " Thorax CT examination within normal limits except for a nonspecific pulmonary nodule superposed on the fissure in the superior segment of the left lung lower lobe.",
+    "lung": "A nonspecific pulmonary nodule is present superposed on the fissure in the superior segment of the left lung lower lobe."
+  },
+  "train_26_a": {
+    "Impressions": "Newly developed left pleural effusion, . Subsegmental atelectasis in the right lung middle lobe, left lung upper lobe lingular segment and lower lobe basal segment of both lungs, and nonspecific nodule smaller than 2 mm in the right lung middle lobe, subsegmentary atelectasis appearances are new according to the previous examination. has developed."
+  },
+  "train_27_a": {
+    "Impressions": "Fusiform aneurysmatic dilatation in the ascending aorta.  High suspicious findings for Covid-19 pneumonia in the lung parenchyma Clinic and lab. It is recommended to be evaluated together with . Liver right lobectomized, cholestectomized.",
+    "aorta": "Fusiform aneurysmatic dilatation in the ascending aorta.",
+    "lung": "High suspicious findings for Covid-19 pneumonia in the lung parenchyma Clinic and lab.",
+    "liver": "Liver right lobectomized, cholestectomized."
+  },
+  "train_28_a": {
+    "Impressions": " Findings consistent with Covid pneumonia.  Increase in heart size.  Aortic valve calcification Calcific plaque in LAD."
+  },
+  "train_29_a": {
+    "Impressions": "Pattern-like peripheral consolidations in the left lung upper lobe apicoposterior segment, although unilateral, may be significant in terms of Covid-19 pneumonia in the presence of a pandemic."
+  },
+  "train_29_b": {
+    "Impressions": "Areas of consolidation in both lungs showing progression from previous CT scan evaluated in favor of viral pneumonia."
+  },
+  "train_30_a": {
+    "Impressions": " Large consolidative parenchyma area including air bronchograms starting from the lower lobe superior segment in both lungs and continuing towards the baseline in the right lung, scattered focal ground-glass-style density increases-consolidation areas in both lungs, clinical and laboratory findings of the case in terms of Covid pneumonia in the first place during the pandemic process. It is recommended to be evaluated together. However, the accompanying right lower lobe lobar pneumonia could not be excluded.  Hepatosteatosis."
+  },
+  "train_31_a": {
+    "Impressions": " Mild emphysematous changes in both lungs, subsegmental atelectasis in both lungs."
+  },
+  "train_32_a": {
+    "Impressions": "Findings consistent with viral pneumonia in both lungs, areas of increased density consistent with linear atelectasis in both lung lower lobe posterobasal segment and left lung upper lobe lingula inferior lingular segment. Stable lytic bone lesions in bone structures within the image."
+  },
+  "train_33_a": {
+    "Impressions": " Findings consistent with viral pneumonia in both lungs."
+  },
+  "train_34_a": {
+    "Impressions": "Lymphadenopathy in the prevascular region . Minimal bronchiectasis in both lungs . Minimal emphysematous changes in both lungs . Millimetric nonspecific nodules in both lungs.  Atherosclerotic changes in the aorta and coronary arteries."
+  },
+  "train_35_a": {
+    "Impressions": " A 6.6 mm stone distal to the common bile duct, proximal to it, causing dilatation of the intrahepatic bile ducts and the common bile duct.  Grade 0-1 spondylolisthesis at L4-L5 level.  Cholelithiasis."
+  },
+  "train_36_a": {
+    "Impressions": " Cavity lesions were observed in the right lung lower lobe superior segment, left hilar region and lower lobe superior segment. However, a minimal decrease was observed in the size of the cavitary lesions in the left hilar region in the current examination.  In the current examination, in the apical segment of the left lung upper lobe, there is a newly developed pelvral-based millimetric nodule.  There are lymphadenopathies in the right paratracheal area of the mediastinum, which were also observed in the previous PET-CT examination, but whose size increased significantly in the current examination. It cannot be clearly characterized in this examination. However, they are thought to be metastases. When the findings are evaluated together, they are in favor of progressive disease."
+  },
+  "train_36_b": {
+    "Impressions": " There is lymphadenopathy observed in the mediastinum and an increase in the size of the masses and nodules observed in both lungs. Density increases were observed in the ground glass density, which may belong to pneumonic infiltration, in the vicinity of the dog observed in the superior lower lobe of the right lung.  The size of metastatic masses observed in the liver has decreased",
+    "lung": "An increase in the size of the masses and nodules observed in both lungs. Density increases were observed in the ground glass density, which may belong to pneumonic infiltration, in the vicinity of the dog observed in the superior lower lobe of the right lung",
+    "liver": "The size of metastatic masses observed in the liver has decreased"
+  },
+  "train_37_a": {
+    "Impressions": "Consolidations and bud tree appearances in the anterior basal segment of the left lung lower lobe on current examination (the appearance was primarily evaluated as infective). Post-treatment control is recommended.  Centriacinar stable nodules in both lungs.  Decrease in atelectatic changes in the superior segment of the left lung lower lobe. Mediastinal stable lymph nodes.",
+    "lung": "Consolidations and bud tree appearances in the anterior basal segment of the left lung lower lobe on current examination (the appearance was primarily evaluated as infective). Centriacinar stable nodules in both lungs. Decrease in atelectatic changes in the superior segment of the left lung lower lobe."
+  },
+  "train_37_b": {
+    "Impressions": "AML in follow-up . Views of budding trees in both lungs",
+    "lung": "Views of budding trees in both lungs"
+  },
+  "train_37_c": {
+    "Impressions": "AML on follow-up. Although the described manifestations are not specific, they were evaluated in favor of infective pathologies. Clinic and lab. Correlation is recommended.  Cholelithiasis. Heterogeneous appearance in mesenteric and omental fatty planes."
+  },
+  "train_38_a": {
+    "Impressions": " Thoracic CT examination within normal limits"
+  },
+  "train_39_a": {
+    "Impressions": " No sign of pneumonia was detected.  Millimetric sized, some calcified, nonspecific parenchymal nodules in both lungs.  Edema-inflammation and air images in the subcutaneous fatty planes in the inferior neck and right supraclavicular region in the examination area."
+  },
+  "train_39_b": {
+    "Impressions": " Slight increase in cardiothoracic index.  A fissure-based nodule of 2 mm in diameter (intrapulmonary lymph node?) in the middle lobe of the right lung.  No infiltration was detected in both lungs."
+  },
+  "train_39_c": {
+    "Impressions": " Newly developed ground-glass densities in the upper lobes of both lungs (viral pneumonia?).  Millimetric nonspecific nodules in both lungs.",
+    "lung": "Newly developed ground-glass densities in the upper lobes of both lungs (viral pneumonia?).  Millimetric nonspecific nodules in both lungs."
+  },
+  "train_39_d": {
+    "Impressions": " A few lymph nodes, the largest of which is approximately 1 cm in diameter, although difficult to distinguish due to the lack of contrast in the examination in the paraaortic area."
+  }
+}
