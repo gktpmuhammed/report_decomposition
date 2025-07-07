@@ -10,12 +10,19 @@ def load_json(filename):
 # Load all data
 ground_truth_conc = load_json('conc_info.json')
 ground_truth_desc = load_json('desc_info.json')
-generated_conc = load_json('conc_info_manual_kv_v1.json')
-generated_desc = load_json('desc_info_manual_kv_v1.json')
+generated_conc = load_json('conc_info_manual_v5.json')
+generated_desc = load_json('desc_info_manual_v5.json')
 
 # Initialize counters
 desc_organ_matches = defaultdict(lambda: {'correct': 0, 'total': 0})
 conc_organ_matches = defaultdict(lambda: {'correct': 0, 'total': 0})
+# New counters for reverse direction
+desc_organ_matches_reverse = defaultdict(lambda: {'correct': 0, 'total': 0})
+conc_organ_matches_reverse = defaultdict(lambda: {'correct': 0, 'total': 0})
+
+# Specific organs to focus on
+target_organs = ['heart', 'aorta', 'lung', 'esophagus']
+
 report_type_counts = {
     'ground_truth': {
         'impression_only': {'count': 0, 'total': 0},
@@ -31,7 +38,7 @@ report_type_counts = {
     }
 }
 
-# Compare organ findings in descriptions - only for patients in generated results
+# Compare organ findings in descriptions - ground truth in generated
 for report_id in generated_desc:
     if report_id in ground_truth_desc:  # Check if this report exists in ground truth
         gt_organs = set(ground_truth_desc[report_id].keys())
@@ -39,12 +46,19 @@ for report_id in generated_desc:
         
         # Check each organ in ground truth
         for organ in gt_organs:
-            if organ != "Findings":  # Skip the "Findings" key as it's not an organ
+            if organ != "Findings" and organ in target_organs:  # Only check target organs
                 desc_organ_matches[organ]['total'] += 1
                 if organ in gen_organs:
                     desc_organ_matches[organ]['correct'] += 1
 
-# Compare organ findings in conclusions - only for patients in generated results
+        # Check each organ in generated (reverse direction)
+        for organ in gen_organs:
+            if organ != "Findings" and organ in target_organs:  # Only check target organs
+                desc_organ_matches_reverse[organ]['total'] += 1
+                if organ in gt_organs:
+                    desc_organ_matches_reverse[organ]['correct'] += 1
+
+# Compare organ findings in conclusions - ground truth in generated
 for report_id in generated_conc:
     if report_id in ground_truth_conc:  # Check if this report exists in ground truth
         gt_organs = set(ground_truth_conc[report_id].keys())
@@ -52,10 +66,17 @@ for report_id in generated_conc:
         
         # Check each organ in ground truth
         for organ in gt_organs:
-            if organ not in ["Impressions", "Conclusion"]:  # Skip the "Impressions" key as it's not an organ
+            if organ not in ["Impressions", "Conclusion"] and organ in target_organs:  # Only check target organs
                 conc_organ_matches[organ]['total'] += 1
                 if organ in gen_organs:
                     conc_organ_matches[organ]['correct'] += 1
+
+        # Check each organ in generated (reverse direction)
+        for organ in gen_organs:
+            if organ not in ["Impressions", "Conclusion"] and organ in target_organs:  # Only check target organs
+                conc_organ_matches_reverse[organ]['total'] += 1
+                if organ in gt_organs:
+                    conc_organ_matches_reverse[organ]['correct'] += 1
 
 # Check for impression-only and findings-only reports
 def is_impression_only(conc_data, report_id):
@@ -118,9 +139,11 @@ for organ, stats in conc_organ_matches.items():
     print(f"{organ}:")
     print(f"  - Found in {stats['correct']} out of {stats['total']} cases ({accuracy:.2f}%)")
 
-print("\n=== Combined Organ Detection Statistics ===")
-all_organs = set(list(desc_organ_matches.keys()) + list(conc_organ_matches.keys()))
-for organ in all_organs:
+print("\n=== Combined Organ Detection Statistics (Both Directions) ===")
+for organ in target_organs:
+    print(f"\n{organ}:")
+    
+    # Ground Truth -> Generated direction
     desc_correct = desc_organ_matches[organ]['correct']
     desc_total = desc_organ_matches[organ]['total']
     conc_correct = conc_organ_matches[organ]['correct']
@@ -130,10 +153,25 @@ for organ in all_organs:
     total_cases = desc_total + conc_total
     accuracy = (total_correct / total_cases * 100) if total_cases > 0 else 0
     
-    print(f"{organ}:")
+    print(f"Ground Truth -> Generated:")
     print(f"  - Total: Found in {total_correct} out of {total_cases} cases ({accuracy:.2f}%)")
     print(f"  - In Descriptions: {desc_correct}/{desc_total}")
     print(f"  - In Conclusions: {conc_correct}/{conc_total}")
+    
+    # Generated -> Ground Truth direction
+    desc_correct_rev = desc_organ_matches_reverse[organ]['correct']
+    desc_total_rev = desc_organ_matches_reverse[organ]['total']
+    conc_correct_rev = conc_organ_matches_reverse[organ]['correct']
+    conc_total_rev = conc_organ_matches_reverse[organ]['total']
+    
+    total_correct_rev = desc_correct_rev + conc_correct_rev
+    total_cases_rev = desc_total_rev + conc_total_rev
+    accuracy_rev = (total_correct_rev / total_cases_rev * 100) if total_cases_rev > 0 else 0
+    
+    print(f"\nGenerated -> Ground Truth:")
+    print(f"  - Total: Found in {total_correct_rev} out of {total_cases_rev} cases ({accuracy_rev:.2f}%)")
+    print(f"  - In Descriptions: {desc_correct_rev}/{desc_total_rev}")
+    print(f"  - In Conclusions: {conc_correct_rev}/{conc_total_rev}")
 
 print("\n=== Report Type Statistics ===")
 # Impression-only statistics

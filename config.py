@@ -27,7 +27,7 @@ OUTPUT_FILES = {
 MODEL_CONFIG = {
     "name": "qwen3:8b",
     "base_url": "http://localhost:11434",
-    "max_workers": 4,
+    "max_workers": 10,
     "batch_size": 500,
     "save_interval": 50,
     "chunk_size": 5000
@@ -36,12 +36,12 @@ MODEL_CONFIG = {
 # Processing settings
 PROCESSING_CONFIG = {
     "cooldown": {
-        "between_batches": 5,  # seconds
-        "between_chunks": 15   # seconds
+        "between_batches": 5,
+        "between_chunks": 15
     },
     "retry": {
         "max_attempts": 2,
-        "delay": 1  # seconds
+        "delay": 1
     }
 }
 
