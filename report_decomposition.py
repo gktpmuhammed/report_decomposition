@@ -123,7 +123,7 @@ class OllamaProvider:
                     "options": {
                         "temperature": 0.0,  # Zero temperature for maximum consistency
                         "top_p": 0.1,       # Very focused sampling
-                        "num_predict": 2048  # Limit response length
+                        "num_predict": 20000  # Limit response length
                     }
                 }
                 
@@ -134,7 +134,7 @@ class OllamaProvider:
                 response = self._session.post(
                     f"{self.base_url}/api/generate",
                     json=request_data,
-                    timeout=90  # Increased timeout
+                    timeout=150  # Increased timeout
                 )
                 
                 response.raise_for_status()
@@ -246,17 +246,21 @@ Return ONLY the JSON object:"""
         try:
             # Step 1: Remove any non-JSON content
             def clean_response(text: str) -> str:
-                # Remove common prefixes/suffixes
-                text = re.sub(r'^[^{]*', '', text)  # Remove everything before first {
-                text = re.sub(r'[^}]*$', '', text)  # Remove everything after last }
-                
-                # Remove markdown code blocks
-                text = re.sub(r'```(?:json)?\s*|\s*```', '', text)
-                
-                # Remove thinking blocks and other tags
-                text = re.sub(r'<[^>]+>.*?</[^>]+>', '', text, flags=re.DOTALL)
-                
-                return text.strip()
+                """Extracts the last JSON object from a string that might contain other text."""
+                try:
+                    # Find the start of the last potential JSON object
+                    start = text.rfind('{')
+                    if start == -1:
+                        return ""
+                    
+                    # Find the end of the last potential JSON object
+                    end = text.rfind('}')
+                    if end == -1 or end < start:
+                        return ""
+                    
+                    return text[start : end + 1]
+                except ValueError:
+                    return ""
             
             # Step 2: Extract and validate JSON
             cleaned_text = clean_response(response_str)
@@ -306,7 +310,7 @@ Return ONLY the JSON object:"""
                 
             return result
 
-    def decompose_report(self, row: pd.Series) -> Dict[str, Dict[str, str]]:
+    def decompose_report(self, row: pd.Series, processing_mode: str = 'all') -> Dict[str, Dict[str, str]]:
         """Decomposes a single report row into findings and impressions."""
         volume_name = row.get('VolumeName', 'UNKNOWN')
         patient_id = '_'.join(str(volume_name).split('_')[:3])
@@ -321,7 +325,7 @@ Return ONLY the JSON object:"""
         decomposed_data = {"findings": {}, "impressions": {}}
 
         # Process findings
-        if findings_text:
+        if processing_mode in ['all', 'findings'] and findings_text:
             decomposed_data["findings"]["Findings"] = findings_text
             extracted_findings = self._rate_limited_call(findings_text, patient_id)
             
@@ -335,7 +339,7 @@ Return ONLY the JSON object:"""
                     decomposed_data["findings"][anatomy.lower()] = desc
 
         # Process impressions
-        if impressions_text:
+        if processing_mode in ['all', 'impressions'] and impressions_text:
             decomposed_data["impressions"]["Conclusion"] = impressions_text
             extracted_impressions = self._rate_limited_call(impressions_text, patient_id)
             
@@ -357,7 +361,7 @@ Return ONLY the JSON object:"""
         
         return decomposed_data
 
-    def _process_single_report(self, row_data: Tuple) -> Tuple[str, Dict[str, Dict[str, str]]]:
+    def _process_single_report(self, row_data: Tuple, processing_mode: str = 'all') -> Tuple[str, Dict[str, Dict[str, str]]]:
         """Process a single report (for parallel processing)."""
         idx, row = row_data
         volume_name = row['VolumeName']
@@ -366,7 +370,7 @@ Return ONLY the JSON object:"""
         start_time = time.time()
         try:
             self.logger.debug(f"Starting processing for patient {patient_id}")
-            decomposed_data = self.decompose_report(row)
+            decomposed_data = self.decompose_report(row, processing_mode=processing_mode)
             processing_time = time.time() - start_time
             
             with self._lock:
@@ -401,7 +405,7 @@ Return ONLY the JSON object:"""
             self.logger.error(f"{error_type} processing {patient_id}: {str(e)}")
             return patient_id, {"findings": {}, "impressions": {}}
 
-    def process_reports(self, input_data, output_dir: str = "data", sample_size: Optional[int] = None, save_interval: int = 100):
+    def process_reports(self, input_data, output_dir: str = "data", sample_size: Optional[int] = None, save_interval: int = 100, findings_path: Optional[Path] = None, impressions_path: Optional[Path] = None, processing_mode: str = 'all'):
         """Process all reports in the CSV file or DataFrame with parallel processing and incremental saving."""
         # Handle input data
         if isinstance(input_data, str):
@@ -422,23 +426,23 @@ Return ONLY the JSON object:"""
         os.makedirs(output_dir, exist_ok=True)
         
         # Load existing results if they exist
-        findings_path = OUTPUT_FILES["findings"]
-        impressions_path = OUTPUT_FILES["impressions"]
+        final_findings_path = findings_path if findings_path else OUTPUT_FILES["findings"]
+        final_impressions_path = impressions_path if impressions_path else OUTPUT_FILES["impressions"]
         
         all_findings = {}
         all_impressions = {}
         processed_patients = set()
         
-        if os.path.exists(findings_path):
-            self.logger.info(f"Loading existing findings from {findings_path}")
-            with open(findings_path, 'r', encoding='utf-8') as f:
+        if os.path.exists(final_findings_path):
+            self.logger.info(f"Loading existing findings from {final_findings_path}")
+            with open(final_findings_path, 'r', encoding='utf-8') as f:
                 all_findings = json.load(f)
                 processed_patients.update(all_findings.keys())
                 self.logger.info(f"Loaded {len(all_findings)} existing findings")
         
-        if os.path.exists(impressions_path):
-            self.logger.info(f"Loading existing impressions from {impressions_path}")
-            with open(impressions_path, 'r', encoding='utf-8') as f:
+        if os.path.exists(final_impressions_path):
+            self.logger.info(f"Loading existing impressions from {final_impressions_path}")
+            with open(final_impressions_path, 'r', encoding='utf-8') as f:
                 all_impressions = json.load(f)
                 self.logger.info(f"Loaded {len(all_impressions)} existing impressions")
         
@@ -450,7 +454,7 @@ Return ONLY the JSON object:"""
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             # Submit all tasks
             future_to_row = {
-                executor.submit(self._process_single_report, (idx, row)): idx 
+                executor.submit(self._process_single_report, (idx, row), processing_mode=processing_mode): idx 
                 for idx, row in df.iterrows()
             }
             self.logger.info(f"Submitted {len(future_to_row)} tasks to thread pool")
@@ -478,7 +482,7 @@ Return ONLY the JSON object:"""
                                 if completed_since_last_save >= save_interval:
                                     self.logger.info(f"Saving intermediate results after {completed_since_last_save} new completions")
                                     try:
-                                        self._save_results(all_findings, all_impressions, output_dir)
+                                        self._save_results(all_findings, all_impressions, final_findings_path, final_impressions_path, processing_mode=processing_mode)
                                         self.logger.info(f"Successfully saved intermediate results. Total processed: {len(processed_patients)}")
                                     except Exception as save_error:
                                         self.logger.error(f"Failed to save intermediate results: {save_error}")
@@ -493,7 +497,7 @@ Return ONLY the JSON object:"""
         # Final save
         self.logger.info("Performing final save of results")
         try:
-            self._save_results(all_findings, all_impressions, output_dir)
+            self._save_results(all_findings, all_impressions, final_findings_path, final_impressions_path, processing_mode=processing_mode)
             self.logger.info("Final save completed successfully")
         except Exception as final_save_error:
             self.logger.error(f"Failed to perform final save: {final_save_error}")
@@ -518,23 +522,22 @@ Processed patients: {len(processed_patients)}
         print(f"Decomposition complete! Processed {len(processed_patients)} unique patients.")
         self.logger.info(f"Completed processing {len(processed_patients)} patients")
 
-    def _save_results(self, findings: Dict, impressions: Dict, output_dir: str):
+    def _save_results(self, findings: Dict, impressions: Dict, findings_path: Path, impressions_path: Path, processing_mode: str = 'all'):
         """Helper method to save results to files."""
-        findings_path = OUTPUT_FILES["findings"]
-        impressions_path = OUTPUT_FILES["impressions"]
-        
         # Save with temporary files to prevent corruption
         findings_temp = str(findings_path) + '.tmp'
         impressions_temp = str(impressions_path) + '.tmp'
         
         try:
-            with open(findings_temp, 'w', encoding='utf-8') as f:
-                json.dump(findings, f, indent=2, ensure_ascii=False)
-            os.replace(findings_temp, findings_path)
+            if processing_mode in ['all', 'findings']:
+                with open(findings_temp, 'w', encoding='utf-8') as f:
+                    json.dump(findings, f, indent=2, ensure_ascii=False)
+                os.replace(findings_temp, findings_path)
             
-            with open(impressions_temp, 'w', encoding='utf-8') as f:
-                json.dump(impressions, f, indent=2, ensure_ascii=False)
-            os.replace(impressions_temp, impressions_path)
+            if processing_mode in ['all', 'impressions']:
+                with open(impressions_temp, 'w', encoding='utf-8') as f:
+                    json.dump(impressions, f, indent=2, ensure_ascii=False)
+                os.replace(impressions_temp, impressions_path)
         except Exception as e:
             self.logger.error(f"Error saving results: {e}")
             # Clean up temp files if they exist
