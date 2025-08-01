@@ -1,0 +1,242 @@
+[
+    {
+        "patient_id": "Ss9Z66yVeu8_1_1",
+        "findings": {
+            "Heart": "Central positioning of the cardiomedias-tinum.",
+            "Liver": "Liver parenchyma evenly contrasted without evidence of densely differentiated focal lesions.",
+            "Spleen": "Unremarkable presentation of pancreas and spleen.",
+            "Kidney": "Symmetrical contrast of renal parenchyma."
+        },
+        "impressions": {
+            "Liver": "Liver is normal in size and contour.",
+            "Spleen": "Spleen is enlarged.",
+            "Kidney": "Both kidneys demonstrate simple cysts.",
+            "Heart": "The heart is unremarkable."
+        }
+    },
+    {
+        "patient_id": "DJJ9wVjkyJU_1_1",
+        "findings": {
+            "Kidney": "Elongation and sclerosis of abdominal aorta with moderate stenosis of celiac trunk and high-grade stenosis of mesenteric artery at calcified plaques.",
+            "Spleen": "Elongation and sclerosis of abdominal aorta with moderate stenosis of celiac trunk and high-grade stenosis of mesenteric artery at calcified plaques.",
+            "Liver": "Elongation and sclerosis of abdominal aorta with moderate stenosis of celiac trunk and high-grade stenosis of mesenteric artery at calcified plaques.",
+            "Heart": "Elongation and sclerosis of abdominal aorta with moderate stenosis of celiac trunk and high-grade stenosis of mesenteric artery at calcified plaques."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "pPq5uIsBEoo_1_1",
+        "findings": {},
+        "impressions": {}
+    },
+    {
+        "patient_id": "pgrUFnHSHaE_1_1",
+        "findings": {
+            "Heart": "Mediastinal positioning of the heart. Normally enhanced contrast of the cardiac chambers and central vessels. No pericardial effusion."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "gBIgsYSmY8k_1_1",
+        "findings": {
+            "Kidney": "Renal lesions on both sides with partially cystic density values, differential diagnosis renal cysts."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_1_a",
+        "findings": {
+            "Heart": "Other mediastinal main vascular structures, heart contour, size are normal.",
+            "Kidney": "The left kidney partially entering the section is atrophic. The right kidney could not be evaluated because it did not enter the section.",
+            "Liver": "No space-occupying lesion was detected in the liver that entered the cross-sectional area."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_2_a",
+        "findings": {
+            "Heart": "As far as can be seen; mediastinal main vascular structures, heart contour, size are normal."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_3_a",
+        "findings": {
+            "Heart": "Heart size increased.",
+            "Kidney": "In both kidneys included in the examination, appearances evaluated in favor of multiple cysts are observed."
+        },
+        "impressions": {
+            "Heart": "Slight increase in heart size."
+        }
+    },
+    {
+        "patient_id": "train_3_b",
+        "findings": {
+            "Heart": "Heart contour and size are normal."
+        },
+        "impressions": {
+            "Kidney": "Chronic renal failure in follow-up.",
+            "Liver": "Millimetric nodules in both lungs.",
+            "Spleen": "Atherosclerotic changes in the aorta and coronary arteries."
+        }
+    },
+    {
+        "patient_id": "train_4_a",
+        "findings": {
+            "Heart": "As far as can be seen; mediastinal main vascular structures, heart contour, size are normal.",
+            "Liver": "No space-occupying lesion was detected in the liver that entered the cross-sectional area."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_5_a",
+        "findings": {
+            "Heart": "Calibration of mediastinal vascular structures, heart contour, its size is natural."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_6_a",
+        "findings": {
+            "Heart": "Heart sizes are of normal width. Pericardial effusion was not detected."
+        },
+        "impressions": {
+            "Liver": "The liver is normal in size, measuring 15 cm.",
+            "Spleen": "The spleen is normal in size.",
+            "Kidney": "The kidneys are normal in size and appearance.",
+            "Heart": "The heart is normal in size."
+        }
+    },
+    {
+        "patient_id": "train_6_b",
+        "findings": {
+            "Heart": "Heart contour and size are normal.",
+            "Liver": "As far as it can be evaluated within the non-contrast CT limits; 13 mm in diameter hypodense lesion in the subcapsular area in liver segment 8 is stable (cyst?)."
+        },
+        "impressions": {
+            "Liver": "Stable hypodense lesion (cyst?) in the right lobe of the liver."
+        }
+    },
+    {
+        "patient_id": "train_7_a",
+        "findings": {
+            "Heart": "Heart contour size is natural. Pericardial thickening-effusion was not detected.",
+            "Liver": "Liver size increased."
+        },
+        "impressions": {
+            "Liver": "Hepatomegaly."
+        }
+    },
+    {
+        "patient_id": "train_8_a",
+        "findings": {
+            "Heart": "Heart sizes increased and minimal pericardial effusion was observed.",
+            "Liver": "The upper abdominal organs included in the examination appear natural.",
+            "Spleen": "The upper abdominal organs included in the examination appear natural.",
+            "Kidney": "The upper abdominal organs included in the examination appear natural."
+        },
+        "impressions": {
+            "Heart": "Cardiomegaly and minimal pericardial effusion."
+        }
+    },
+    {
+        "patient_id": "train_8_b",
+        "findings": {},
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_9_a",
+        "findings": {
+            "Heart": "Mediastinal main vascular structures, heart contour, size are normal.",
+            "Liver": "No space-occupying lesion was detected in the liver that entered the cross-sectional area."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_10_a",
+        "findings": {
+            "Heart": "Mediastinal main vascular structures, heart contour, size are normal. Pericardial effusion-thickening was not observed. Calcific plaques are present in the coronary arteries.",
+            "Liver": "A millimetric hypodense lesion was observed in segment 2 of the liver in the upper abdominal organs included in the sections."
+        },
+        "impressions": {
+            "Heart": "Aortic and coronary artery atherosclerosis",
+            "Liver": "Hypodense lesion (cyst?) in liver segment 2"
+        }
+    },
+    {
+        "patient_id": "train_11_a",
+        "findings": {
+            "Heart": "The heart is unremarkable.",
+            "Liver": "Liver is normal in size and contour.",
+            "Kidney": "Both kidneys demonstrate simple cysts.",
+            "Spleen": "Spleen is enlarged."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_12_a",
+        "findings": {
+            "Heart": "Heart contour, size is normal. Pericardial effusion-thickening was not observed.",
+            "Liver": "No space-occupying lesion was detected in the liver that entered the cross-sectional area."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_13_a",
+        "findings": {
+            "Heart": "As far as can be seen; Mediastinal main vascular structures, heart contour, size are normal.",
+            "Liver": "Density changes consistent with hepatosteatosis are observed in the liver parenchyma."
+        },
+        "impressions": {
+            "Liver": "hepatosteatosis."
+        }
+    },
+    {
+        "patient_id": "train_14_a",
+        "findings": {
+            "Heart": "Vertebral corpus heights are preserved.",
+            "Liver": "No space-occupying lesion was detected in the liver that entered the cross-sectional area."
+        },
+        "impressions": {}
+    },
+    {
+        "patient_id": "train_15_a",
+        "findings": {
+            "Heart": "As far as can be seen; Mediastinal main vascular structures, heart contour, size are normal.",
+            "Spleen": "Accessory spleen with a diameter of 12 mm was observed in the inferior of the splenic hilus.",
+            "Liver": "No space-occupying lesion was detected in the liver that entered the cross-sectional area."
+        },
+        "impressions": {
+            "Spleen": "Spleen hilus accessory spleen inferiorly."
+        }
+    },
+    {
+        "patient_id": "train_16_a",
+        "findings": {},
+        "impressions": {
+            "Liver": "Metastatic mass lesions thought to increase in number and size in both lobes of the liver, although optimal evaluation could not be made in the examination performed without IV contrast; Further examination is recommended."
+        }
+    },
+    {
+        "patient_id": "train_16_b",
+        "findings": {
+            "Heart": "The heart is normal in size.",
+            "Liver": "The liver demonstrates normal size and contour.",
+            "Spleen": "The spleen is unremarkable.",
+            "Kidney": "The kidneys demonstrate no hydronephrosis."
+        },
+        "impressions": {
+            "Liver": "An increase in the number of liver metastases is observed."
+        }
+    },
+    {
+        "patient_id": "train_17_a",
+        "findings": {
+            "Heart": "Mediastinal main vascular structures, heart contour, size are normal.",
+            "Liver": "There is an appearance compatible with hepatosteatosis in the liver parenchyma entering the section area."
+        },
+        "impressions": {
+            "Liver": "Hepatosteatosis."
+        }
+    }
+]
