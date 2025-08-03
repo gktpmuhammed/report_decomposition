@@ -59,4 +59,4 @@ To stop the Ollama server completely, go back to the first terminal and press `C
 
 
 
-nohup bash -c 'ollama serve > ollama.log 2>&1 & sleep 10 && source ~/miniconda3/etc/profile.d/conda.sh && conda activate ct-rate && python report_decomposition.py' > report_decomposition_output.log 2>&1 &
+nohup bash -c 'ollama serve > output/logs/ollama.log 2>&1 & sleep 10 && source ~/miniconda3/etc/profile.d/conda.sh && conda activate ct-rate && PYTHONPATH=src python src/ct_rate/report_decomposition.py' > output/logs/report_decomposition_output.log 2>&1 &

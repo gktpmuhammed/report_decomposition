@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Base directories
 BASE_DIR = Path(os.path.dirname(os.path.abspath(__file__))).parent.parent
-DATA_DIR = BASE_DIR / "data"
+DATA_DIR = BASE_DIR / "fvlm" / "data"
 LOGS_DIR = BASE_DIR / "output" / "logs"
 
 # Ensure directories exist
@@ -14,13 +14,14 @@ LOGS_DIR.mkdir(exist_ok=True)
 
 # Input files
 INPUT_FILES = {
-    "train": DATA_DIR / "train_reports.csv",
+    "train": DATA_DIR / "dataset" / "radiology_text_reports" / "train_reports.csv",
+    "val": DATA_DIR / "dataset" / "radiology_text_reports" / "validation_reports.csv"
 }
 
 # Output files
 OUTPUT_FILES = {
-    "findings": BASE_DIR / "output" / "ct-rate" / "desc_info_manual_v5.json",
-    "impressions": BASE_DIR / "output" / "ct_rate" / "conc_info_manual_v5.json"
+    "findings": BASE_DIR / "output" / "ct-rate" / "val_desc_info_manual_v5.json",
+    "impressions": BASE_DIR / "output" / "ct_rate" / "val_conc_info_manual_v5.json"
 }
 
 # Model settings

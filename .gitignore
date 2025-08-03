@@ -17,6 +17,7 @@ miniconda3/
 .bash_logout
 .bash_profile
 .bashrc
+.env
 
 # Node.js
 node_modules/
@@ -51,3 +52,7 @@ ENV/
 dist/
 build/
 *.egg-info/
+
+# Embedded git repositories
+fvlm/
+radextract/

@@ -14,7 +14,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 import logging
 from datetime import datetime
-from config import (
+from config.config import (
     MODEL_CONFIG,
     PROCESSING_CONFIG,
     LOGGING_CONFIG,
@@ -568,7 +568,7 @@ def main():
     try:
         # Use pandas chunk reading for large CSV
         chunk_size = MODEL_CONFIG["chunk_size"]
-        for chunk_num, chunk_df in enumerate(pd.read_csv(INPUT_FILES["train"], chunksize=chunk_size)):
+        for chunk_num, chunk_df in enumerate(pd.read_csv(INPUT_FILES["val"], chunksize=chunk_size)):
             logger.info(f"Processing chunk {chunk_num + 1}")
             
             # Process each chunk in batches
