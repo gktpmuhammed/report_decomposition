@@ -20,7 +20,7 @@ INPUT_FILES = {
 
 # Output files
 OUTPUT_FILES = {
-    "findings": BASE_DIR / "output" / "ct-rate" / "val_desc_info_manual_v5.json",
+    "findings": BASE_DIR / "output" / "ct_rate" / "val_desc_info_manual_v5.json",
     "impressions": BASE_DIR / "output" / "ct_rate" / "val_conc_info_manual_v5.json"
 }
 

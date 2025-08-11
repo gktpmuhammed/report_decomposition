@@ -14,6 +14,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 import logging
 from datetime import datetime
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from config.config import (
     MODEL_CONFIG,
     PROCESSING_CONFIG,
@@ -524,6 +528,11 @@ Processed patients: {len(processed_patients)}
 
     def _save_results(self, findings: Dict, impressions: Dict, findings_path: Path, impressions_path: Path, processing_mode: str = 'all'):
         """Helper method to save results to files."""
+        # Ensure the directory for the output files exists
+        for path in [findings_path, impressions_path]:
+            if path:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                
         # Save with temporary files to prevent corruption
         findings_temp = str(findings_path) + '.tmp'
         impressions_temp = str(impressions_path) + '.tmp'
