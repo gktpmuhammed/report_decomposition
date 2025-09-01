@@ -56,3 +56,5 @@ build/
 # Embedded git repositories
 fvlm/
 radextract/
+.totalsegmentator/
+.triton/
