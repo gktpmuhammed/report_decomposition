@@ -232,11 +232,11 @@ Expected Output:
 }}
 
 INVALID OUTPUTS:
-❌ Here's the JSON: {{"Heart": "normal"}}
-❌ ```{{"Heart": "normal"}}```
-❌ Let me analyze... {{"Heart": "normal"}}
-❌ {{"heart": "normal"}} (wrong capitalization)
-❌ {{"Heart": "normal", "Unknown": "data"}} (invalid anatomy)"""
+Here's the JSON: {{"Heart": "normal"}}
+```{{"Heart": "normal"}}```
+Let me analyze... {{"Heart": "normal"}}
+{{"heart": "normal"}} (wrong capitalization)
+{{"Heart": "normal", "Unknown": "data"}} (invalid anatomy)"""
 
         prompt = f"""Extract anatomical information from this CT report text:
 
