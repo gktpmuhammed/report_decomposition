@@ -25,7 +25,7 @@ API_KEY = os.getenv("GEMINI_API_KEY")
 if not API_KEY:
     raise ValueError("GEMINI_API_KEY not found. Please set it in your .env file.")
 
-def decompose_section(section_text: str, model_id: str = 'gemini-1.5-pro') -> dict:
+def decompose_section(section_text: str, model_id: str = 'gemini-1.5-flash') -> dict:
     """
     Decomposes a single section of a radiology report (e.g., findings or impression).
     Args:
