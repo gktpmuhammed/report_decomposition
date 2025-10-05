@@ -58,3 +58,5 @@ fvlm/
 radextract/
 .totalsegmentator/
 .triton/
+
+nltk_data/
