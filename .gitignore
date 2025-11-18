@@ -4,6 +4,8 @@
 .cache/
 .conda/
 .cursor-server/
+.vscode-server/
+.dotnet/
 .nv/
 .ollama/
 .ssh/
