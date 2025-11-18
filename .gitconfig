@@ -3,3 +3,6 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[user]
+	name = gktpmuhammed
+	email = goktepemuhammed41@hotmail.com
