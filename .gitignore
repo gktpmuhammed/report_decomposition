@@ -20,6 +20,7 @@ miniconda3/
 .bash_profile
 .bashrc
 .env
+.netrc
 
 # Node.js
 node_modules/
