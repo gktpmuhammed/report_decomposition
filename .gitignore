@@ -63,3 +63,4 @@ radextract/
 .triton/
 
 nltk_data/
+stanza_resources/
