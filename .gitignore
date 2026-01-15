@@ -64,3 +64,6 @@ radextract/
 
 nltk_data/
 stanza_resources/
+
+.antigravity-server/
+.gemini/

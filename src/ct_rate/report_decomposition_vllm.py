@@ -12,8 +12,8 @@ from vllm import LLM, SamplingParams
 # Use the official Meta weights or the AWQ version. 
 # With 4x A100s, you can likely run the full unquantized BF16 model for max accuracy.
 # If OOM, switch to "kosbu/Llama-3.3-70B-Instruct-AWQ"
-MODEL_ID = "kosbu/Llama-3.3-70B-Instruct-AWQ" 
-TENSOR_PARALLEL_SIZE = 2  
+MODEL_ID = "google/medgemma-4b-it" 
+TENSOR_PARALLEL_SIZE = 1  
 
 # MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
 # TENSOR_PARALLEL_SIZE = 1
@@ -25,19 +25,20 @@ class AnatomyMap(BaseModel):
     lung: str | None = Field(None, description="Lungs, parenchyma, nodules, opacities, pleura.")
     heart: str | None = Field(None, description="Heart size, pericardium, chambers.")
     aorta: str | None = Field(None, description="Aorta, arch, calcifications.")
-    pulmonary_vein: str | None = Field(None, description="Pulmonary veins, vasculature.")
-    vena_cava: str | None = Field(None, description="SVC, IVC.")
+    # pulmonary_vein: str | None = Field(None, description="Pulmonary veins, vasculature.")
+    # vena_cava: str | None = Field(None, description="SVC, IVC.")
     trachea: str | None = Field(None, description="Trachea, main bronchi.")
     esophagus: str | None = Field(None, description="Esophagus, hiatal hernia.")
-    thyroid: str | None = Field(None, description="Thyroid gland.")
+    # thyroid: str | None = Field(None, description="Thyroid gland.")
+    portal_vein: str | None = Field(None, description="Portal vein.")
     
     # Bones
-    spine: str | None = Field(None, description="Vertebrae, degenerative changes, spondylosis.")
+    # spine: str | None = Field(None, description="Vertebrae, degenerative changes, spondylosis.")
     rib: str | None = Field(None, description="Ribs, fractures.")
-    sternum: str | None = Field(None, description="Sternum.")
-    clavicula: str | None = Field(None, description="Clavicle.")
-    scapula: str | None = Field(None, description="Scapula.")
-    humerus: str | None = Field(None, description="Humerus, shoulder joint.")
+    # sternum: str | None = Field(None, description="Sternum.")
+    # clavicula: str | None = Field(None, description="Clavicle.")
+    # scapula: str | None = Field(None, description="Scapula.")
+    # humerus: str | None = Field(None, description="Humerus, shoulder joint.")
     
     # Abdomen
     liver: str | None = Field(None, description="Liver parenchyma, steatosis.")
@@ -49,10 +50,7 @@ class AnatomyMap(BaseModel):
     adrenal: str | None = Field(None, description="Adrenal glands.")
     colon: str | None = Field(None, description="Colon, large intestine.")
     small_bowel: str | None = Field(None, description="Small intestine, duodenum.")
-    
-    # Muscles
-    iliopsoas: str | None = Field(None, description="Psoas muscles.")
-    autochthon: str | None = Field(None, description="Paraspinal muscles.")
+    bladder: str | None = Field(None, description="Urinary bladder.")
 
 # This is the master schema that separates Findings and Impressions
 class MasterDecomposition(BaseModel):
