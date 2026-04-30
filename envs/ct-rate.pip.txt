@@ -1,0 +1,2 @@
+# Generate on source machine:
+# conda run -n ct-rate pip freeze > envs/ct-rate.pip.txt

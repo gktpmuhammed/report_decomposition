@@ -6,17 +6,14 @@ import logging
 import re
 from typing import List, Dict, Optional
 from pydantic import BaseModel, Field
+from pathlib import Path
 from vllm import LLM, SamplingParams
 
 # --- CONFIGURATION ---
-# Use the official Meta weights or the AWQ version. 
-# With 4x A100s, you can likely run the full unquantized BF16 model for max accuracy.
 # If OOM, switch to "kosbu/Llama-3.3-70B-Instruct-AWQ"
-MODEL_ID = "google/medgemma-4b-it" 
-TENSOR_PARALLEL_SIZE = 1  
-
-# MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
-# TENSOR_PARALLEL_SIZE = 1
+PROJECT_ROOT = Path(os.getenv("PROJECT_ROOT", Path(__file__).resolve().parents[2]))
+MODEL_ID = os.getenv("REPORT_DECOMP_MODEL_ID", "google/medgemma-4b-it")
+TENSOR_PARALLEL_SIZE = int(os.getenv("REPORT_DECOMP_TP_SIZE", "1"))
 
 # --- 1. THE SCHEMA ---
 # We define a sub-model for the organ mapping
@@ -91,7 +88,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--train_csv', type=str, required=True)
     parser.add_argument('--val_csv', type=str, required=True)
-    parser.add_argument('--output_dir', type=str, default='./decomposed_data')
+    parser.add_argument(
+        '--output_dir',
+        type=str,
+        default=str(PROJECT_ROOT / 'output' / 'ct_rate'),
+    )
     parser.add_argument('--sample', type=int, default=None, help="Process only N samples per file for testing")
     args = parser.parse_args()
 

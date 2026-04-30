@@ -1,0 +1,2 @@
+# Generate on source machine:
+# conda list -n ct-rate --explicit > envs/ct-rate.explicit.txt

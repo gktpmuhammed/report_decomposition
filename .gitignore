@@ -51,6 +51,16 @@ ENV/
 .cache/
 .config/
 
+# Handover cleanup: generated outputs
+output/inspect/
+output/tum/
+output/ct_rate/*.png
+output/ct_rate/*.csv
+output/ct_rate/*.txt
+output/ct_rate/*manual*.json
+output/ct_rate/radextract*.json
+output/ct_rate/langextract*.json
+
 # Build and distribution directories
 dist/
 build/
